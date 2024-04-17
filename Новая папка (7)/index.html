@@ -1,0 +1,58 @@
+<style>
+  * {
+    text-align: center;
+    font-family: fantasy;
+    letter-spacing: 4px;
+  }
+  p {
+    font-size: 90px;
+    height: 110px;
+  }
+  button {
+    width: 300px;
+    height: 65px;
+    background: #cb7d7d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: cyan;
+  }
+  span{
+    animation: ss 1 0.3s forwards ease-in-out;
+    opacity:0;
+  }
+  @keyframes ss {
+    0%{
+        opacity: 0;
+        color: green;
+    }
+    30%{
+        color: green;
+        
+    }
+    100%{
+        opacity: 1;
+        color: black;
+    }
+  }
+</style>
+
+<h1>Случайное число:</h1>
+<p>0</p>
+<button onclick="numberGenerate()">Сгенерировать</button>
+<script>
+  function numberGenerate() {
+    document.querySelector("p").innerText = "";
+
+    const number = (Math.random() * 50000000000000000000).toFixed();
+    for (let i = 0; i < number.length; i++) {
+        setTimeout(()=>{
+            console.log(number[i]);
+            document.querySelector("p").innerHTML += '<span>'+number[i]+'</span>'
+        },100*i)
+    }
+  }
+</script>
